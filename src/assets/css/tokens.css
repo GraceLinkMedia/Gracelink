@@ -1,0 +1,49 @@
+:root {
+  /* Official "GLC Colour Scheme" palette, supplied directly by the church.
+     NOTE: the source blue swatch read "#0E7EC" (5 digits, invalid) — used
+     #0E7EC0 as the working value pending confirmation. */
+  --color-brand-blue: #0e7ec0;
+  --color-link: #0d71ad; /* darkened ~10% from brand blue — #0e7ec0 only clears 4.41:1 on white, just under the 4.5:1 AA minimum for body text; this variant clears 5.27:1 */
+  --color-navy: #082660; /* white text only (14.4:1) — fails badly with dark text */
+  --color-teal: #18a99f; /* dark text only (5:1 with --color-ink) — fails badly with white text (2.9:1) */
+  --color-tan: #bdb489; /* dark text only (7:1 with --color-ink) — fails badly with white text (2.1:1) */
+  --color-charcoal: #293b46; /* white text only (11.6:1) — fails badly with dark text */
+  --color-ink: #292929;
+  --color-ink-soft: #31333b;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f6f5;
+  --color-border: #e4e4e4;
+  --color-white: #ffffff;
+
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Source Sans Pro", sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --tap-target-min: 44px;
+
+  --content-max-width: 1100px;
+
+  /* Breakpoints (documented, not usable as custom properties in media queries):
+     480 / 768 / 1024 / 1200 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

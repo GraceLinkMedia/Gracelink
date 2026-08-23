@@ -1,0 +1,342 @@
+backend:
+  name: github
+  repo: GraceLinkMedia/Gracelink
+  branch: main
+  # TODO: replace with your deployed Cloudflare Worker URL once set up (see /cms-oauth-setup.md)
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  auth_endpoint: auth
+
+# Editorial workflow is deliberately OFF, per the rebuild brief — edits publish straight to
+# the `main` branch and Vercel auto-deploys. Keep it simple for a single non-technical editor.
+publish_mode: simple
+
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home Page
+        file: src/content/home.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - label: "Hero Photos (swipeable gallery — add 1 or more)"
+            name: heroSlides
+            widget: list
+            summary: "{{alt}}"
+            fields:
+              - { label: Photo, name: image, widget: image }
+              - { label: "Alt Text (describe the photo for screen readers)", name: alt, widget: string }
+              - { label: "Crop Position (advanced — e.g. 'center 100%' to show more of the bottom of the photo, 'center 0%' for the top)", name: focalPosition, widget: string, required: false, hint: "Leave blank for a plain centered crop" }
+          - { label: "Main Heading", name: heading, widget: string }
+          - { label: "Tagline", name: tagline, widget: text }
+          - { label: "Sermon Section Label", name: sermonHeading, widget: string }
+          - { label: "Sermon YouTube Video ID (the part after 'v=' in the YouTube URL)", name: sermonVideoId, widget: string }
+          - { label: "Sermon Video Title", name: sermonVideoTitle, widget: string }
+          - { label: "Sermon Description", name: sermonDescription, widget: text }
+          - { label: "Sermon Thumbnail Image", name: sermonThumbnail, widget: image }
+          - { label: "Sermon Video Link (full YouTube URL)", name: sermonVideoUrl, widget: string }
+          - { label: "'Join us' Heading", name: ctaHeading, widget: string }
+          - { label: "'Join us' Button Text", name: ctaButtonText, widget: string }
+          - { label: "'Join us' Button Link", name: ctaButtonUrl, widget: string }
+          - label: "Three Cards"
+            name: cards
+            widget: list
+            summary: "{{title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: "Button Text", name: linkText, widget: string }
+              - { label: "Button Link", name: linkUrl, widget: string }
+              - { label: "Opens in a new tab (for external links)", name: external, widget: boolean, default: false }
+
+      - name: who-we-are
+        label: Who We Are
+        file: src/content/who-we-are.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "Hero Image", name: heroImage, widget: image }
+          - { label: "Hero Image Alt Text", name: heroImageAlt, widget: string }
+          - { label: "Hero Image Focal Point (e.g. \"center 15%\")", name: heroFocalPosition, widget: string, required: false }
+          - label: "Our Divine Instruction"
+            name: divineInstruction
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Mission
+            name: mission
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Statement, name: statement, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: "Culture and Values"
+            name: cultureValues
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Values
+                name: values
+                widget: list
+                field: { label: Value, name: value, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: "Image Alt Text", name: imageAlt, widget: string, required: false }
+          - label: "What We Believe"
+            name: whatWeBelieve
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: "Belief Statements"
+                name: beliefs
+                widget: list
+                field: { label: Statement, name: statement, widget: text }
+
+      - name: plan-a-visit
+        label: Plan A Visit
+        file: src/content/plan-a-visit.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Show the sticky 'Plan A Visit' bar on this page", name: stickyCta, widget: boolean, default: false }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - label: "Intro Paragraphs"
+            name: intro
+            widget: list
+            field: { label: Paragraph, name: paragraph, widget: text }
+          - { label: "Video Section Heading", name: videoHeading, widget: string }
+          - { label: "YouTube Video ID (the part after 'v=' in the YouTube URL)", name: videoId, widget: string }
+          - { label: "Video Title (for accessibility)", name: videoTitle, widget: string }
+          - { label: "Video Thumbnail Image", name: videoThumbnail, widget: image }
+          - { label: "Photo Gallery Heading (hidden from view, used for screen readers)", name: galleryHeading, widget: string, required: false }
+          - label: "Photo Gallery (optional — photos of the venue, arrival, fellowship, etc.)"
+            name: gallery
+            widget: list
+            required: false
+            summary: "{{caption}}"
+            fields:
+              - { label: Photo, name: image, widget: image }
+              - { label: "Alt Text (describe the photo for screen readers)", name: alt, widget: string }
+              - { label: "Caption (shown under the photo)", name: caption, widget: string, required: false }
+          - { label: "FAQ Section Heading", name: faqHeading, widget: string }
+          - label: "Frequently Asked Questions"
+            name: faq
+            widget: list
+            summary: "{{question}}"
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: text }
+          - { label: "'Join us' Heading", name: ctaHeading, widget: string }
+          - { label: "'Join us' Button Text", name: ctaButtonText, widget: string }
+
+      - name: get-involved
+        label: Get Involved
+        file: src/content/get-involved.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "Header Photo", name: heroImage, widget: image }
+          - { label: "Header Photo Alt Text (for screen readers)", name: heroImageAlt, widget: string }
+          - label: "Four Cards (Attend / Connect / Serve / Give)"
+            name: cards
+            widget: list
+            summary: "{{title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: "Link (leave blank for no link)", name: linkUrl, widget: string, required: false }
+              - { label: "Card Colour", name: color, widget: select, options: ["ink", "gold", "teal", "blue"] }
+              - { label: "Card Icon", name: icon, widget: select, options: ["clock", "chat", "heart", "gift"] }
+          - { label: "'Get Involved' Heading", name: ctaHeading, widget: string }
+          - { label: "'Get Involved' Button Text", name: ctaButtonText, widget: string }
+
+      - name: give
+        label: Give
+        file: src/content/give.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "'Give Online' Card Text", name: giveOnlineText, widget: text }
+          - { label: "'Bank Transfer' Card Text", name: bankTransferText, widget: text }
+
+      - name: contact
+        label: Contact Us
+        file: src/content/contact.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "'Send A Message' Heading", name: ctaHeading, widget: string }
+          - { label: "'Send A Message' Text", name: ctaText, widget: string }
+          - { label: "'Send A Message' Button Text", name: ctaButtonText, widget: string }
+
+      - name: events
+        label: Events
+        file: src/content/events.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "Intro Text", name: intro, widget: text }
+          - { label: "ChurchSuite Calendar Embed Link", name: calendarEmbedUrl, widget: string, hint: "From ChurchSuite: Calendar > Embed > copy the iframe src URL" }
+          - { label: "Button Text", name: buttonText, widget: string }
+
+      - name: sermons
+        label: Sermons
+        file: src/content/sermons.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "Intro Text", name: intro, widget: text }
+          - { label: "YouTube Uploads Playlist ID", name: playlistId, widget: string, hint: "Leave as-is unless the church changes YouTube channels — this is derived from the channel ID, not a normal playlist" }
+          - { label: "Preview Thumbnail (shown before someone clicks play)", name: latestThumbnail, widget: image }
+          - { label: "Podcast Section Heading", name: podcastHeading, widget: string }
+          - { label: "Podcast Section Text", name: podcastIntro, widget: text }
+          - { label: "Spotify Show URL", name: spotifyUrl, widget: string }
+          - { label: "Apple Podcasts URL", name: applePodcastsUrl, widget: string }
+
+      - name: our-team
+        label: "Leadership Page"
+        file: src/content/our-team.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "Closing Quote", name: closingQuote, widget: text }
+
+      - name: ministers
+        label: "Ministries Page"
+        file: src/content/ministers.md
+        fields:
+          - { label: "Page Title (browser tab)", name: title, widget: string }
+          - { label: "Page Description (for search engines)", name: description, widget: text }
+          - { label: "Page Heading", name: pageTitle, widget: string }
+          - { label: "Page Subheading", name: pageSubtitle, widget: string }
+          - { label: "'Join a Team' Heading", name: ctaHeading, widget: string }
+          - { label: "'Join a Team' Button Text", name: ctaButtonText, widget: string }
+
+  - name: leadership
+    label: Leadership
+    folder: src/content/leadership
+    create: true
+    slug: "{{fields.name}}"
+    summary: "{{name}} — {{role}}"
+    fields:
+      - { label: "Display Order (1 = first)", name: order, widget: number, default: 1 }
+      - { label: Name, name: name, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Photo, name: photo, widget: image }
+      - label: "Bio Paragraphs"
+        name: bio
+        widget: list
+        field: { label: Paragraph, name: paragraph, widget: text }
+      - label: "Social Links"
+        name: social
+        widget: list
+        required: false
+        summary: "{{platform}}"
+        fields:
+          - { label: Platform, name: platform, widget: select, options: [facebook, instagram, youtube] }
+          - { label: URL, name: url, widget: string }
+      - { label: Tags, name: tags, widget: hidden, default: leadership }
+      - { label: Permalink, name: permalink, widget: hidden, default: false }
+
+  - name: ministries
+    label: Ministries
+    folder: src/content/ministries
+    create: true
+    slug: "{{fields.name}}"
+    summary: "{{name}}"
+    fields:
+      - { label: "Display Order (1 = first)", name: order, widget: number, default: 1 }
+      - { label: Name, name: name, widget: string }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Image, name: image, widget: image }
+      - { label: "Link (leave blank for no link)", name: link, widget: string, required: false }
+      - { label: Tags, name: tags, widget: hidden, default: ministry }
+      - { label: Permalink, name: permalink, widget: hidden, default: false }
+
+  - name: settings
+    label: Site Settings
+    files:
+      - name: site
+        label: Site Settings
+        file: src/_data/site.json
+        fields:
+          - { label: Church Name, name: name, widget: string }
+          - { label: Website Address, name: url, widget: string }
+          - { label: Locale, name: locale, widget: string }
+          - { label: "Charity Number", name: charityNumber, widget: string }
+          - label: "Service Times"
+            name: service
+            widget: object
+            fields:
+              - { label: "Display Text (shown on the site)", name: display, widget: string }
+              - { label: Day, name: day, widget: string }
+              - { label: "Opens (24hr, e.g. 11:00)", name: opens, widget: string }
+              - { label: "Closes (24hr, e.g. 12:30)", name: closes, widget: string }
+          - label: Venue
+            name: venue
+            widget: object
+            fields:
+              - { label: "Venue Name", name: name, widget: string }
+              - { label: "Street Address", name: streetAddress, widget: string }
+              - { label: "Town / City", name: addressLocality, widget: string }
+              - { label: Postcode, name: postalCode, widget: string }
+              - { label: "Country Code", name: addressCountry, widget: string }
+              - { label: "Full Address (shown on the site)", name: display, widget: string }
+              - { label: "Google Maps Link", name: mapsUrl, widget: string }
+          - { label: "Phone (as displayed)", name: phone, widget: string }
+          - { label: "Phone (tel: link — keep the +44 format)", name: phoneHref, widget: string }
+          - { label: Email, name: email, widget: string }
+          - label: "Social Media Links"
+            name: social
+            widget: object
+            fields:
+              - { label: Facebook, name: facebook, widget: string }
+              - { label: Google, name: google, widget: string }
+              - { label: Instagram, name: instagram, widget: string }
+              - { label: YouTube, name: youtube, widget: string }
+          - label: "ChurchSuite Links"
+            name: churchsuite
+            widget: object
+            fields:
+              - { label: "Portal Home", name: portal, widget: string }
+              - { label: "Donate Link", name: donate, widget: string }
+              - { label: "Connect Form Link", name: connectForm, widget: string }
+          - label: "Bank Transfer Details"
+            name: bankTransfer
+            widget: object
+            fields:
+              - { label: "Account Name", name: accountName, widget: string }
+              - { label: "Sort Code", name: sortCode, widget: string }
+              - { label: "Account Number", name: accountNumber, widget: string }
+              - { label: Note, name: note, widget: text }

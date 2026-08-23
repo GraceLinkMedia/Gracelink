@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+  <p>{{ pageSubtitle }}</p>
+</div>
+
+<section class="section">
+  <div class="container">
+  <h2 class="visually-hidden">Ways To Give</h2>
+  <div class="card-grid card-grid--2">
+    <div class="card">
+      <h3><a href="{{ site.churchsuite.donate }}" rel="noopener" target="_blank">Give Online</a></h3>
+      <p>{{ giveOnlineText }}</p>
+      <a class="button" href="{{ site.churchsuite.donate }}" rel="noopener" target="_blank">Give Now</a>
+    </div>
+    <div class="card">
+      <h3>Bank Transfer</h3>
+      <p>{{ bankTransferText }}</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="container" style="margin-top: var(--space-6);">
+    <dl class="detail-box">
+      <dt>Account Name</dt>
+      <dd>{{ site.bankTransfer.accountName }}</dd>
+      <dt>Sort Code</dt>
+      <dd>{{ site.bankTransfer.sortCode }}</dd>
+      <dt>Account Number</dt>
+      <dd>{{ site.bankTransfer.accountNumber }}</dd>
+    </dl>
+    <p class="prose" style="text-align: center; margin: var(--space-4) auto 0; font-style: italic;">{{ site.bankTransfer.note }}</p>
+  </div>
+</section>

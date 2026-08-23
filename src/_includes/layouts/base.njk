@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.name }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{{ description or site.name }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="{{ site.locale }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}",
+    "telephone": "{{ site.phoneHref | replace('tel:', '') }}",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.venue.streetAddress }}",
+      "addressLocality": "{{ site.venue.addressLocality }}",
+      "postalCode": "{{ site.venue.postalCode }}",
+      "addressCountry": "{{ site.venue.addressCountry }}"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "{{ site.service.opens }}",
+      "closes": "{{ site.service.closes }}"
+    },
+    "sameAs": [
+      "{{ site.social.facebook }}",
+      "{{ site.social.instagram }}",
+      "{{ site.social.youtube }}"
+    ]
+  }
+  </script>
+
+  <style>{% inlineCSS "fonts.css", "tokens.css", "base.css" %}</style>
+</head>
+<body class="{% if stickyCta != false %}has-sticky-cta{% endif %}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% include "partials/header.njk" %}
+
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  {% if stickyCta != false %}
+    <div class="sticky-cta">
+      <a class="button" href="/plan-a-visit/">Plan A Visit</a>
+    </div>
+  {% endif %}
+
+  <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/video-facade.js" defer></script>
+</body>
+</html>

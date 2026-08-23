@@ -1,0 +1,23 @@
+[
+  { "label": "Home", "url": "/" },
+  {
+    "label": "About",
+    "url": "/who-we-are/",
+    "children": [
+      { "label": "Who We Are", "url": "/who-we-are/" },
+      { "label": "Leadership", "url": "/our-team/" }
+    ]
+  },
+  { "label": "Plan A Visit", "url": "/plan-a-visit/" },
+  {
+    "label": "Connect",
+    "url": "/get-involved/",
+    "children": [
+      { "label": "Get Involved", "url": "/get-involved/" },
+      { "label": "Events", "url": "/events/" },
+      { "label": "Sermons", "url": "/sermons/" }
+    ]
+  },
+  { "label": "Give", "url": "/give/" },
+  { "label": "Contact", "url": "/contact/" }
+]

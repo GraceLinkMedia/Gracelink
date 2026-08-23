@@ -1,0 +1,16 @@
+{
+  "name": "gracelink-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GraceLink Church static site (Eleventy)",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "heic-convert": "^2.1.0"
+  }
+}

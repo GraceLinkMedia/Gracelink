@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+  <p>{{ pageSubtitle }}</p>
+</div>
+
+<section class="section">
+  <div class="container">
+  <h2 class="visually-hidden">Contact Details</h2>
+  <div class="card-grid card-grid--3">
+    <div class="card">
+      <h3>Address</h3>
+      <p>{{ site.venue.display }}</p>
+      <a class="button button--outline" href="{{ site.venue.mapsUrl }}" rel="noopener" target="_blank">Get Directions</a>
+    </div>
+    <div class="card">
+      <h3>Phone</h3>
+      <p><a href="{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p><a href="mailto:{{ site.email | replace('@', '&#64;') | safe }}">{{ site.email | replace('@', '&#64;') | safe }}</a></p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{ ctaHeading }}</h2>
+    <p class="cta-banner__time">{{ ctaText }}</p>
+    <a class="button" href="{{ site.churchsuite.connectForm }}" rel="noopener" target="_blank">{{ ctaButtonText }}</a>
+  </div>
+</section>

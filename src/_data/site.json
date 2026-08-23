@@ -1,0 +1,41 @@
+{
+  "name": "GraceLink Church",
+  "url": "https://glchurch.co.uk",
+  "locale": "en_GB",
+  "charityNumber": "1214587",
+  "service": {
+    "display": "Sundays 11:00am – 12:30pm",
+    "day": "Sunday",
+    "opens": "11:00",
+    "closes": "12:30"
+  },
+  "venue": {
+    "name": "Dance Studio, Vivacity Werrington Leisure Centre",
+    "streetAddress": "Staniland Way",
+    "addressLocality": "Peterborough",
+    "postalCode": "PE4 6NA",
+    "addressCountry": "GB",
+    "display": "Dance Studio, Vivacity Werrington Leisure Centre, Staniland Way, Peterborough, PE4 6NA",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vivacity+Werrington+Leisure+Centre+Staniland+Way+Peterborough+PE4+6NA"
+  },
+  "phone": "07364 115813",
+  "phoneHref": "tel:+447364115813",
+  "email": "info@gracelink.co.uk",
+  "social": {
+    "facebook": "https://shorturl.at/3uRim",
+    "google": "https://share.google/XMlhG2VPhDA6XD4Pm",
+    "instagram": "https://www.instagram.com/gracelinkchurch",
+    "youtube": "https://www.youtube.com/@GraceLinkChurch"
+  },
+  "churchsuite": {
+    "portal": "https://gracelinkchurch.churchsuite.com/",
+    "donate": "https://gracelinkchurch.churchsuite.com/donate",
+    "connectForm": "https://gracelinkchurch.churchsuite.com/-/forms/jbjqb8y8"
+  },
+  "bankTransfer": {
+    "accountName": "GraceLink Church",
+    "sortCode": "51-81-08",
+    "accountNumber": "84319224",
+    "note": "As we get charged a fee for online and card payments, our preferred method of donation is by bank transfer and standing order."
+  }
+}

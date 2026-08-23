@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+  <p>{{ pageSubtitle }}</p>
+</div>
+
+<section class="section">
+  <div class="container prose" style="text-align: center; max-width: 60ch; margin-inline: auto;">
+    <p>{{ intro }}</p>
+  </div>
+  <div class="container" style="max-width: 800px; margin-top: var(--space-5);">
+    <div class="video-facade" data-playlist-id="{{ playlistId }}" data-video-title="GraceLink Church sermons playlist">
+      <a href="{{ site.social.youtube }}" class="video-facade__link" rel="noopener" target="_blank">
+        {% image latestThumbnail, "Latest sermon thumbnail", "800px" %}
+        <span class="video-facade__play" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container" style="text-align: center;">
+    <h2>{{ podcastHeading }}</h2>
+    <p class="prose" style="max-width: 50ch; margin: 0 auto var(--space-4);">{{ podcastIntro }}</p>
+    <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+      <a class="button button--outline" href="{{ spotifyUrl }}" rel="noopener" target="_blank">Listen On Spotify</a>
+      <a class="button button--outline" href="{{ applePodcastsUrl }}" rel="noopener" target="_blank">Listen On Apple Podcasts</a>
+      <a class="button button--outline" href="{{ site.social.youtube }}" rel="noopener" target="_blank">Watch On YouTube</a>
+    </div>
+  </div>
+</section>

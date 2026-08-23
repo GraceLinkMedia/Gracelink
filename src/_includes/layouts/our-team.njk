@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+  <p>{{ pageSubtitle }}</p>
+</div>
+
+<section class="section">
+  <div class="container">
+  <h2 class="visually-hidden">Meet Our Pastors</h2>
+  <div class="profile-grid">
+    {% for leader in collections.leadership | sort(attribute='data.order') %}
+    <article class="profile-card">
+      {% image leader.data.photo, leader.data.name, "180px" %}
+      <div class="profile-card__body">
+        <p class="profile-card__role">{{ leader.data.role }}</p>
+        <h3>{{ leader.data.name }}</h3>
+        {% for paragraph in leader.data.bio %}
+        <p>{{ paragraph | markdownify | safe }}</p>
+        {% endfor %}
+        {% if leader.data.social.length %}
+        <div class="profile-card__social">
+          {% for link in leader.data.social %}
+          <a href="{{ link.url }}" aria-label="{{ leader.data.name }} on {{ link.platform }}" rel="noopener" target="_blank">
+            {% if link.platform == "facebook" %}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+            {% elif link.platform == "instagram" %}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c2.7 0 3.1 0 4.1.1 1.1 0 1.8.2 2.3.4a4.6 4.6 0 0 1 2.6 2.6c.2.5.4 1.2.4 2.3.1 1 .1 1.4.1 4.1s0 3.1-.1 4.1c0 1.1-.2 1.8-.4 2.3a4.6 4.6 0 0 1-2.6 2.6c-.5.2-1.2.4-2.3.4-1 .1-1.4.1-4.1.1s-3.1 0-4.1-.1c-1.1 0-1.8-.2-2.3-.4a4.6 4.6 0 0 1-2.6-2.6c-.2-.5-.4-1.2-.4-2.3C2 15.1 2 14.7 2 12s0-3.1.1-4.1c0-1.1.2-1.8.4-2.3a4.6 4.6 0 0 1 2.6-2.6c.5-.2 1.2-.4 2.3-.4C8.9 2 9.3 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"/></svg>
+            {% elif link.platform == "youtube" %}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.2c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.1c-.4 0-1.3.1-2.1.9-.6.7-.8 2.2-.8 2.2S2.2 9 2.2 10.7v1.5c0 1.7.2 3.5.2 3.5s.2 1.5.8 2.2c.8.8 1.9.8 2.3.9 1.7.2 7 .2 7 .2s3.9 0 6.7-.2c.4 0 1.3-.1 2.1-.9.6-.7.8-2.2.8-2.2s.2-1.7.2-3.5v-1.5C22 9 21.8 7.2 21.8 7.2ZM9.9 14.6V8.9l5.4 2.9-5.4 2.8Z"/></svg>
+            {% endif %}
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container" style="text-align: center;">
+    <h2>{{ closingQuote }}</h2>
+  </div>
+</section>

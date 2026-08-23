@@ -1,0 +1,64 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero">
+  <div class="page-hero__media"{% if heroFocalPosition %} style="--hero-focal: {{ heroFocalPosition }};"{% endif %}>
+    {% image heroImage, heroImageAlt, "100vw", "eager" %}
+  </div>
+  <div class="page-hero__scrim" aria-hidden="true"></div>
+  <div class="page-hero__content">
+    <p class="eyebrow">{{ pageSubtitle }}</p>
+    <h1>{{ pageTitle }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>{{ divineInstruction.heading }}</h2>
+    <div class="two-col prose">
+      {% for paragraph in divineInstruction.paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--navy">
+  <div class="container" style="text-align: center;">
+    <h2>{{ mission.heading }}</h2>
+    <p class="prose" style="font-size: 1.3rem; font-weight: 700; margin-inline: auto;">{{ mission.statement }}</p>
+    <p class="prose" style="margin-inline: auto;">{{ mission.description }}</p>
+  </div>
+</section>
+
+<section class="section section--tan">
+  <div class="container">
+    <div class="two-col" style="align-items: center;">
+      <div>
+        <h2>{{ cultureValues.heading }}</h2>
+        <p class="prose">{{ cultureValues.intro }}</p>
+        <ol class="value-list prose">
+          {% for value in cultureValues.values %}
+          <li>{{ value }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% if cultureValues.image %}
+      <div>
+        {% image cultureValues.image, cultureValues.imageAlt, "(min-width: 768px) 50vw, 100vw" %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--charcoal">
+  <div class="container">
+    <h2>{{ whatWeBelieve.heading }}</h2>
+    <ol class="belief-list prose">
+      {% for belief in whatWeBelieve.beliefs %}
+      <li>{{ belief }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

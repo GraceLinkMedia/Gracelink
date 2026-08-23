@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+  <p>{{ pageSubtitle }}</p>
+</div>
+
+<section class="section">
+  <div class="container">
+  <h2 class="visually-hidden">Our Ministries</h2>
+  <div class="card-grid card-grid--3">
+    {% for ministry in collections.ministry | sort(attribute='data.order') %}
+    <div class="card">
+      {% image ministry.data.image, ministry.data.name, "(min-width: 768px) 33vw, 100vw", "eager" if loop.first else "lazy" %}
+      {% if ministry.data.link %}
+      <h3><a href="{{ ministry.data.link }}">{{ ministry.data.name }}</a></h3>
+      {% else %}
+      <h3>{{ ministry.data.name }}</h3>
+      {% endif %}
+      {% if ministry.data.description %}
+      <p>{{ ministry.data.description }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{ ctaHeading }}</h2>
+    <a class="button" href="{{ site.churchsuite.connectForm }}" rel="noopener" target="_blank">{{ ctaButtonText }}</a>
+  </div>
+</section>

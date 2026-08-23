@@ -1,0 +1,31 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/post-types", "destination": "/events/", "permanent": true },
+    { "source": "/post-types/", "destination": "/events/", "permanent": true },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "post_type", "value": "tribe_events" }],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page_id", "value": "3995" }],
+      "destination": "/get-involved/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page_id", "value": "5429" }],
+      "destination": "/plan-a-visit/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page_id" }],
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

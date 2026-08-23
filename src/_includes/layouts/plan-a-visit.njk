@@ -1,0 +1,64 @@
+---
+layout: layouts/base.njk
+---
+<div class="page-header">
+  <h1>{{ pageTitle }}</h1>
+</div>
+
+<section class="section">
+  <div class="container prose">
+    {% for paragraph in intro %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container" style="max-width: 800px;">
+    <h2 style="text-align: center;">{{ videoHeading }}</h2>
+    <div class="video-facade" data-video-id="{{ videoId }}" data-video-title="{{ videoTitle }}">
+      <a href="https://www.youtube.com/watch?v={{ videoId }}" class="video-facade__link">
+        {% image videoThumbnail, videoTitle, "(min-width: 800px) 800px, 100vw" %}
+        <span class="video-facade__play" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% if gallery %}
+<section class="section">
+  <div class="container">
+    <h2 class="visually-hidden">{{ galleryHeading or "What to expect when you arrive" }}</h2>
+    <div class="photo-grid">
+      {% for item in gallery %}
+      <figure>
+        {% image item.image, item.alt, "(min-width: 640px) 50vw, 100vw" %}
+        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="container">
+    <h2>{{ faqHeading }}</h2>
+    {% for item in faq %}
+    <div class="faq-item">
+      <h3>{{ item.question }}</h3>
+      <p>{{ item.answer }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{ ctaHeading }}</h2>
+    <p class="cta-banner__time">{{ site.service.display }}</p>
+    <a class="button" href="{{ site.churchsuite.connectForm }}" rel="noopener" target="_blank">{{ ctaButtonText }}</a>
+  </div>
+</section>

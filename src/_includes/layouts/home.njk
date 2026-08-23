@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero">
+  <div class="hero__gallery" role="region" aria-label="Photos of GraceLink Church" tabindex="0">
+    <div class="hero__track">
+      {% for slide in heroSlides %}
+      <div class="hero__slide" id="hero-slide-{{ loop.index }}"{% if slide.focalPosition %} style="--hero-focal: {{ slide.focalPosition }};"{% endif %}>
+        {% image slide.image, slide.alt, "100vw", "eager" if loop.first else "lazy" %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="hero__heading">
+    {% if heroSlides.length > 1 %}
+    <div class="hero__dots">
+      {% for slide in heroSlides %}
+      <a href="#hero-slide-{{ loop.index }}" class="hero__dot" aria-label="Show photo {{ loop.index }} of {{ heroSlides.length }}"></a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h1>{{ heading }}</h1>
+    <p class="hero__tagline">{{ tagline }}</p>
+  </div>
+</section>
+
+<section class="quick-info" aria-label="Service times and contact details">
+  <ul class="quick-info__list container">
+    <li class="quick-info__item">
+      <svg class="quick-info__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <span>
+        <span class="quick-info__label">Sunday Service</span>
+        {{ site.service.display }}
+      </span>
+    </li>
+    <li class="quick-info__item">
+      <svg class="quick-info__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <a href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">
+        <span class="quick-info__label">Find Us</span>
+        {{ site.venue.name }}
+      </a>
+    </li>
+    <li class="quick-info__item">
+      <svg class="quick-info__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+      <a href="{{ site.phoneHref }}">
+        <span class="quick-info__label">Call Us</span>
+        {{ site.phone }}
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="visually-hidden">{{ sermonHeading }}</h2>
+    <div class="sermon-feature">
+      <div class="video-facade" data-video-id="{{ sermonVideoId }}" data-video-title="{{ sermonVideoTitle }}">
+        <a href="{{ sermonVideoUrl }}" class="video-facade__link" rel="noopener" target="_blank">
+          {% image sermonThumbnail, sermonVideoTitle, "(min-width: 768px) 50vw, 100vw" %}
+          <span class="video-facade__play" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="sermon-feature__text">
+        <p class="eyebrow">{{ sermonHeading }}</p>
+        <h3>{{ sermonVideoTitle }}</h3>
+        <p>{{ sermonDescription }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{ ctaHeading }}</h2>
+    <p class="cta-banner__time">{{ site.service.display }}</p>
+    <a class="button" href="{{ ctaButtonUrl }}">{{ ctaButtonText }}</a>
+  </div>
+</section>
+
+<section class="cta-cards">
+  <div class="container">
+  <div class="cta-cards__grid">
+    {% for card in cards %}
+    <div class="cta-card">
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.description }}</p>
+      {% if card.external %}
+      <a class="button button--outline" href="{{ card.linkUrl }}" rel="noopener" target="_blank">{{ card.linkText }} <span class="visually-hidden">(opens in a new tab)</span></a>
+      {% else %}
+      <a class="button button--outline" href="{{ card.linkUrl }}">{{ card.linkText }}</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</section>

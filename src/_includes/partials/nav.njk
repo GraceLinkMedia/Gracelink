@@ -1,0 +1,29 @@
+<nav class="primary-nav" id="primary-nav-list" aria-label="Primary">
+  <ul class="primary-nav__list">
+    {% for item in nav %}
+      <li class="primary-nav__item">
+        {% if item.children %}
+          {% set submenuId = "submenu-" + loop.index %}
+          <button
+            type="button"
+            class="primary-nav__toggle"
+            aria-expanded="false"
+            aria-controls="{{ submenuId }}"
+          >
+            <span>{{ item.label }}</span>
+            <span class="primary-nav__caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="primary-nav__submenu" id="{{ submenuId }}">
+            {% for child in item.children %}
+              <li>
+                <a class="primary-nav__link" href="{{ child.url }}">{{ child.label }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <a class="primary-nav__link" href="{{ item.url }}">{{ item.label }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
