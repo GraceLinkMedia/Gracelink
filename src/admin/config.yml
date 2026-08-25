@@ -2,8 +2,7 @@ backend:
   name: github
   repo: GraceLinkMedia/Gracelink
   branch: main
-  # TODO: replace with your deployed Cloudflare Worker URL once set up (see /cms-oauth-setup.md)
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.media-d16.workers.dev
   auth_endpoint: auth
 
 # Editorial workflow is deliberately OFF, per the rebuild brief — edits publish straight to
