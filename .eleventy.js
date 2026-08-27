@@ -8,9 +8,10 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
     throw new Error(`Missing alt text for image: ${src}`);
   }
 
-  let cleanSrc = src.replace(/^\/+/, "");
+  let isRemote = /^https?:\/\//.test(src);
+  let input = isRemote ? src : path.join("src", src.replace(/^\/+/, ""));
 
-  let metadata = await Image(path.join("src", cleanSrc), {
+  let metadata = await Image(input, {
     widths: [480, 768, 1200, 1600],
     formats: ["avif", "webp", "jpeg"],
     outputDir: path.join("_site", "assets", "images", "optimized"),

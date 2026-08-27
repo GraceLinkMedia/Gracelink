@@ -52,11 +52,12 @@ layout: layouts/base.njk
 
 <section class="section">
   <div class="container">
+    {% set sermon = latestSermon or { videoId: sermonVideoId, title: sermonVideoTitle, thumbnail: sermonThumbnail, url: sermonVideoUrl } %}
     <h2 class="visually-hidden">{{ sermonHeading }}</h2>
     <div class="sermon-feature">
-      <div class="video-facade" data-video-id="{{ sermonVideoId }}" data-video-title="{{ sermonVideoTitle }}">
-        <a href="{{ sermonVideoUrl }}" class="video-facade__link" rel="noopener" target="_blank">
-          {% image sermonThumbnail, sermonVideoTitle, "(min-width: 768px) 50vw, 100vw" %}
+      <div class="video-facade" data-video-id="{{ sermon.videoId }}" data-video-title="{{ sermon.title }}">
+        <a href="{{ sermon.url }}" class="video-facade__link" rel="noopener" target="_blank">
+          {% image sermon.thumbnail, sermon.title, "(min-width: 768px) 50vw, 100vw" %}
           <span class="video-facade__play" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </span>
@@ -64,7 +65,7 @@ layout: layouts/base.njk
       </div>
       <div class="sermon-feature__text">
         <p class="eyebrow">{{ sermonHeading }}</p>
-        <h3>{{ sermonVideoTitle }}</h3>
+        <h3>{{ sermon.title }}</h3>
         <p>{{ sermonDescription }}</p>
       </div>
     </div>

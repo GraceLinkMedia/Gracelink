@@ -11,9 +11,11 @@ layout: layouts/base.njk
     <p>{{ intro }}</p>
   </div>
   <div class="container" style="max-width: 800px; margin-top: var(--space-5);">
+    {% set thumbnail = latestSermon.thumbnail or latestThumbnail %}
+    {% set thumbnailAlt = latestSermon.title or "Latest sermon thumbnail" %}
     <div class="video-facade" data-playlist-id="{{ playlistId }}" data-video-title="GraceLink Church sermons playlist">
       <a href="{{ site.social.youtube }}" class="video-facade__link" rel="noopener" target="_blank">
-        {% image latestThumbnail, "Latest sermon thumbnail", "800px" %}
+        {% image thumbnail, thumbnailAlt, "800px" %}
         <span class="video-facade__play" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
         </span>

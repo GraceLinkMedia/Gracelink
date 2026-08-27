@@ -18,11 +18,14 @@ heroSlides:
 heading: Welcome to GraceLink Church
 tagline: A spiritual hub of transformation and empowerment — helping people connect with God, connect with others, and connect others.
 sermonHeading: Latest Sermon
+sermonDescription: "Catch up on our most recent Sunday teaching — watch anytime, right here."
+# The fields below are only a fallback, used if the automatic YouTube fetch
+# (src/_data/latestSermon.js) fails during a build. Normally the video ID,
+# title, and thumbnail update on their own from the channel's latest upload.
 sermonVideoId: kWHBbfXIrAo
 sermonVideoTitle: "Hearing The Voice Of God - Part 2"
-sermonDescription: "This video, Hearing The Voice Of God - Part 2, focuses on the importance of developing a \"hearing ear\" to follow God's guidance, using the metaphor of a shepherd and his sheep."
 sermonThumbnail: assets/images/sermon-latest-thumb.jpg
-sermonVideoUrl: "https://www.youtube.com/watch?v=kWHBbfXIrAo&t=769s"
+sermonVideoUrl: "https://www.youtube.com/watch?v=kWHBbfXIrAo"
 ctaHeading: We'd love for you to join us this Sunday
 ctaButtonText: Plan A Visit
 ctaButtonUrl: /plan-a-visit/

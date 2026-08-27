@@ -42,11 +42,11 @@ collections:
           - { label: "Main Heading", name: heading, widget: string }
           - { label: "Tagline", name: tagline, widget: text }
           - { label: "Sermon Section Label", name: sermonHeading, widget: string }
-          - { label: "Sermon YouTube Video ID (the part after 'v=' in the YouTube URL)", name: sermonVideoId, widget: string }
-          - { label: "Sermon Video Title", name: sermonVideoTitle, widget: string }
-          - { label: "Sermon Description", name: sermonDescription, widget: text }
-          - { label: "Sermon Thumbnail Image", name: sermonThumbnail, widget: image }
-          - { label: "Sermon Video Link (full YouTube URL)", name: sermonVideoUrl, widget: string }
+          - { label: "Sermon Description (shown under the video title)", name: sermonDescription, widget: text }
+          - { label: "Fallback Video ID (only used if the automatic YouTube fetch fails — the part after 'v=' in the YouTube URL)", name: sermonVideoId, widget: string, required: false }
+          - { label: "Fallback Video Title", name: sermonVideoTitle, widget: string, required: false }
+          - { label: "Fallback Thumbnail Image", name: sermonThumbnail, widget: image, required: false }
+          - { label: "Fallback Video Link (full YouTube URL)", name: sermonVideoUrl, widget: string, required: false }
           - { label: "'Join us' Heading", name: ctaHeading, widget: string }
           - { label: "'Join us' Button Text", name: ctaButtonText, widget: string }
           - { label: "'Join us' Button Link", name: ctaButtonUrl, widget: string }
@@ -215,7 +215,7 @@ collections:
           - { label: "Page Subheading", name: pageSubtitle, widget: string }
           - { label: "Intro Text", name: intro, widget: text }
           - { label: "YouTube Uploads Playlist ID", name: playlistId, widget: string, hint: "Leave as-is unless the church changes YouTube channels — this is derived from the channel ID, not a normal playlist" }
-          - { label: "Preview Thumbnail (shown before someone clicks play)", name: latestThumbnail, widget: image }
+          - { label: "Fallback Preview Thumbnail (only used if the automatic YouTube fetch fails)", name: latestThumbnail, widget: image }
           - { label: "Podcast Section Heading", name: podcastHeading, widget: string }
           - { label: "Podcast Section Text", name: podcastIntro, widget: text }
           - { label: "Spotify Show URL", name: spotifyUrl, widget: string }
