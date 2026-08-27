@@ -20,7 +20,7 @@ cards:
     icon: chat
   - title: Serve
     description: In the house of God, there is a place to serve for everyone. Join a team and make a difference.
-    linkUrl: ""
+    linkUrl: "https://gracelinkchurch.churchsuite.com/-/forms/tuvie3c5"
     color: teal
     icon: heart
   - title: Give
