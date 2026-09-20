@@ -6,8 +6,8 @@ description: GraceLink Church, Peterborough — a spiritual hub of transformatio
 heroSlides:
   - image: assets/images/hero-welcome.png
     alt: "Worshippers with hands raised at a GraceLink Church service, with the words: You're Welcome"
-  - image: assets/images/hero-rich.png
-    alt: "Rich preaching on stage at GraceLink Church"
+  - image: assets/images/hero-richard.png
+    alt: "Richard preaching on stage at GraceLink Church"
     focalPosition: "center 15%"
   - image: assets/images/hero-pastor-daniel.png
     alt: "Pastor Daniel Manyanga preaching on stage at GraceLink Church"
