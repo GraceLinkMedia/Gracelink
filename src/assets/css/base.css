@@ -694,7 +694,9 @@ body.has-sticky-cta {
 }
 
 .section--tan .two-col picture,
-.section--tan .two-col img {
+.section--tan .two-col img,
+.section--charcoal .two-col picture,
+.section--charcoal .two-col img {
   border-radius: var(--radius-md);
 }
 

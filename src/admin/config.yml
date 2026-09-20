@@ -109,6 +109,8 @@ collections:
                 name: beliefs
                 widget: list
                 field: { label: Statement, name: statement, widget: text }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: "Image Alt Text", name: imageAlt, widget: string, required: false }
 
       - name: plan-a-visit
         label: Plan A Visit
