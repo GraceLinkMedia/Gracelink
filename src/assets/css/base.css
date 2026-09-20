@@ -708,7 +708,7 @@ body.has-sticky-cta {
 
 @media (min-width: 900px) {
   .belief-columns {
-    grid-template-columns: 1fr minmax(200px, 320px) 1fr;
+    grid-template-columns: 1fr minmax(240px, 420px) 1fr;
   }
 }
 

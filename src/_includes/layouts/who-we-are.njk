@@ -54,7 +54,7 @@ layout: layouts/base.njk
 
 <section class="section section--charcoal">
   <div class="container">
-    <h2 style="text-align: center;">{{ whatWeBelieve.heading }}</h2>
+    <h2 class="visually-hidden">{{ whatWeBelieve.heading }}</h2>
     <div class="belief-columns">
       <ol class="belief-list prose">
         {% for belief in whatWeBelieve.beliefs.slice(0, 5) %}
@@ -63,7 +63,7 @@ layout: layouts/base.njk
       </ol>
       {% if whatWeBelieve.image %}
       <div class="belief-columns__image">
-        {% image whatWeBelieve.image, whatWeBelieve.imageAlt, "(min-width: 900px) 25vw, 100vw" %}
+        {% image whatWeBelieve.image, whatWeBelieve.imageAlt, "(min-width: 900px) 35vw, 100vw" %}
       </div>
       {% endif %}
       <ol class="belief-list prose" start="6">

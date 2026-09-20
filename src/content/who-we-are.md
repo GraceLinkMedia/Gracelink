@@ -31,7 +31,7 @@ cultureValues:
 whatWeBelieve:
   heading: What We Believe
   image: assets/images/who-we-are-believe.png
-  imageAlt: An open Bible resting on a wooden table
+  imageAlt: "\"What We Believe\" over an open Bible resting on a wooden table"
   beliefs:
     - "There is only one Eternal God and is the Trinity of the Father, the Son, and the Holy Spirit. He is the creator and sustainer of all things."
     - "Jesus Christ is the only Son of God. He came from heaven, was born of Virgin Mary through the operation of the Holy Spirit. As man and God at the same time, he lived on earth, was crucified, died, was buried, rose from the dead and ascended to heaven where He is seated at the right hand of the Father. Jesus Christ is the only way by which we can get to the Father."
