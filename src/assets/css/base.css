@@ -700,6 +700,25 @@ body.has-sticky-cta {
   border-radius: var(--radius-md);
 }
 
+.belief-columns {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .belief-columns {
+    grid-template-columns: 1fr minmax(200px, 320px) 1fr;
+  }
+}
+
+.belief-columns__image picture,
+.belief-columns__image img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
 .section h2 {
   font-size: clamp(1.3rem, 5vw, 1.9rem);
   margin-bottom: var(--space-3);

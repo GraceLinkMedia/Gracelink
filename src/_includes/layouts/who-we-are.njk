@@ -54,20 +54,23 @@ layout: layouts/base.njk
 
 <section class="section section--charcoal">
   <div class="container">
-    <div class="two-col" style="align-items: center;">
-      <div>
-        <h2>{{ whatWeBelieve.heading }}</h2>
-        <ol class="belief-list prose">
-          {% for belief in whatWeBelieve.beliefs %}
-          <li>{{ belief }}</li>
-          {% endfor %}
-        </ol>
-      </div>
+    <h2 style="text-align: center;">{{ whatWeBelieve.heading }}</h2>
+    <div class="belief-columns">
+      <ol class="belief-list prose">
+        {% for belief in whatWeBelieve.beliefs.slice(0, 5) %}
+        <li>{{ belief }}</li>
+        {% endfor %}
+      </ol>
       {% if whatWeBelieve.image %}
-      <div>
-        {% image whatWeBelieve.image, whatWeBelieve.imageAlt, "(min-width: 768px) 50vw, 100vw" %}
+      <div class="belief-columns__image">
+        {% image whatWeBelieve.image, whatWeBelieve.imageAlt, "(min-width: 900px) 25vw, 100vw" %}
       </div>
       {% endif %}
+      <ol class="belief-list prose" start="6">
+        {% for belief in whatWeBelieve.beliefs.slice(5, 10) %}
+        <li>{{ belief }}</li>
+        {% endfor %}
+      </ol>
     </div>
   </div>
 </section>
