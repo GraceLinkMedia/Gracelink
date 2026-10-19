@@ -60,6 +60,20 @@ collections:
               - { label: "Button Text", name: linkText, widget: string }
               - { label: "Button Link", name: linkUrl, widget: string }
               - { label: "Opens in a new tab (for external links)", name: external, widget: boolean, default: false }
+          - label: "Follow Us (social media)"
+            name: followUs
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text, required: false }
+              - { label: "Facebook Page URL (the real facebook.com/YourPage link, not a shortened one — leave blank to hide the Facebook feed)", name: facebookPageUrl, widget: string, required: false }
+              - label: "Featured Instagram/TikTok Posts (paste in a post or video link whenever you want to feature one — leave empty for none)"
+                name: posts
+                widget: list
+                summary: "{{platform}}: {{url}}"
+                fields:
+                  - { label: Platform, name: platform, widget: select, options: ["instagram", "tiktok"] }
+                  - { label: "Post/Video URL", name: url, widget: string }
 
       - name: who-we-are
         label: Who We Are
@@ -326,6 +340,7 @@ collections:
               - { label: Google, name: google, widget: string }
               - { label: Instagram, name: instagram, widget: string }
               - { label: YouTube, name: youtube, widget: string }
+              - { label: "TikTok (leave blank to hide the icon)", name: tiktok, widget: string, required: false }
           - label: "ChurchSuite Links"
             name: churchsuite
             widget: object

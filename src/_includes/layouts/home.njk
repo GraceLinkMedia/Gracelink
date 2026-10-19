@@ -97,3 +97,34 @@ layout: layouts/base.njk
   </div>
   </div>
 </section>
+
+{% if followUs and (followUs.facebookPageUrl or followUs.posts.length) %}
+<section class="section section--alt social-embeds" data-social-embeds>
+  <div class="container">
+    <h2 style="text-align: center;">{{ followUs.heading }}</h2>
+    {% if followUs.intro %}
+    <p class="prose" style="text-align: center; max-width: 50ch; margin: 0 auto var(--space-5);">{{ followUs.intro }}</p>
+    {% endif %}
+    <div class="social-embeds__grid">
+      {% if followUs.facebookPageUrl %}
+      <div class="social-embeds__item">
+        <div class="fb-page" data-href="{{ followUs.facebookPageUrl }}" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+      </div>
+      {% endif %}
+      {% for post in followUs.posts %}
+        {% if post.platform == "instagram" %}
+        <div class="social-embeds__item">
+          <blockquote class="instagram-media" data-instgrm-permalink="{{ post.url }}" data-instgrm-version="14"></blockquote>
+        </div>
+        {% elif post.platform == "tiktok" %}
+        <div class="social-embeds__item">
+          <blockquote class="tiktok-embed" cite="{{ post.url }}" data-video-id="{{ (post.url.split('/')) | last }}">
+            <section></section>
+          </blockquote>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

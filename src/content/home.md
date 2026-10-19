@@ -45,4 +45,9 @@ cards:
     linkText: Find A Team
     linkUrl: /get-involved/
     external: false
+followUs:
+  heading: Follow Us
+  intro: "Stay connected with GraceLink throughout the week."
+  facebookPageUrl: ""
+  posts: []
 ---

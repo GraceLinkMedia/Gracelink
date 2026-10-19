@@ -600,6 +600,26 @@ main:focus {
   margin-top: var(--space-2);
 }
 
+/* ---------------- Social embeds ---------------- */
+
+.social-embeds__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .social-embeds__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.social-embeds__item {
+  width: 100%;
+  max-width: 500px;
+}
+
 /* ---------------- Sticky mobile CTA ---------------- */
 
 .sticky-cta {
