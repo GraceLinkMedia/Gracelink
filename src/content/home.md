@@ -48,6 +48,6 @@ cards:
 followUs:
   heading: Follow Us
   intro: "Stay connected with GraceLink throughout the week."
-  facebookPageUrl: ""
+  facebookPageUrl: "https://www.facebook.com/p/GraceLink-Church-61572989212689/"
   posts: []
 ---
