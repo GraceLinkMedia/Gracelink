@@ -49,5 +49,7 @@ followUs:
   heading: Follow Us
   intro: "Stay connected with GraceLink throughout the week."
   facebookPageUrl: "https://www.facebook.com/p/GraceLink-Church-61572989212689/"
-  posts: []
+  posts:
+    - platform: instagram
+      url: "https://www.instagram.com/reel/DeXJwlpNeCz/"
 ---
