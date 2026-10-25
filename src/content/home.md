@@ -9,9 +9,9 @@ heroSlides:
   - image: assets/images/hero-richard.png
     alt: "Richard preaching on stage at GraceLink Church"
     focalPosition: "center 15%"
-  - image: assets/images/hero-pastor-daniel.png
-    alt: "Pastor Daniel Manyanga preaching on stage at GraceLink Church"
-    focalPosition: "center 15%"
+  - image: assets/images/hero-worship.png
+    alt: "GraceLink worship team leading the congregation in worship, hands raised"
+    focalPosition: "center 10%"
   - image: assets/images/hero-winni.png
     alt: "Pastor Winnifilda Manyanga preaching on stage at GraceLink Church"
     focalPosition: "center 15%"
