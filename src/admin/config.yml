@@ -223,6 +223,16 @@ collections:
           - { label: "Intro Text", name: intro, widget: text }
           - { label: "ChurchSuite Calendar Embed Link", name: calendarEmbedUrl, widget: string, hint: "From ChurchSuite: Calendar > Embed > copy the iframe src URL" }
           - { label: "Button Text", name: buttonText, widget: string }
+          - { label: "Photo Gallery Heading", name: galleryHeading, widget: string, required: false }
+          - label: "Photo Gallery (e.g. photos from a recent event)"
+            name: gallery
+            widget: list
+            required: false
+            summary: "{{alt}}"
+            fields:
+              - { label: Photo, name: image, widget: image }
+              - { label: "Alt Text (describe the photo for screen readers)", name: alt, widget: string }
+              - { label: "Caption (optional, shown under the photo)", name: caption, widget: string, required: false }
 
       - name: sermons
         label: Sermons

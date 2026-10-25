@@ -12,7 +12,11 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
   let input = isRemote ? src : path.join("src", src.replace(/^\/+/, ""));
 
   let metadata = await Image(input, {
-    widths: [480, 768, 1200, 1600],
+    // 2000 only actually gets generated for sources that are at least that
+    // wide (eleventy-img skips upscaling) — it exists so photo-grid's
+    // click-to-enlarge lightbox has a genuinely sharper image to show,
+    // not just the same ~1600px version stretched bigger.
+    widths: [480, 768, 1200, 1600, 2000],
     formats: ["avif", "webp", "jpeg"],
     outputDir: path.join("_site", "assets", "images", "optimized"),
     urlPath: "/assets/images/optimized/",
