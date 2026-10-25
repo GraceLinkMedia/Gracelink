@@ -1,12 +1,14 @@
 backend:
   name: github
   repo: GraceLinkMedia/Gracelink
-  branch: main
+  # Points at the same branch Vercel Production deploys from, so a CMS save
+  # is live immediately and there's only ever one branch to keep in sync.
+  branch: recon
   base_url: https://sveltia-cms-auth.media-d16.workers.dev
   auth_endpoint: auth
 
 # Editorial workflow is deliberately OFF, per the rebuild brief — edits publish straight to
-# the `main` branch and Vercel auto-deploys. Keep it simple for a single non-technical editor.
+# the branch above and Vercel auto-deploys. Keep it simple for a single non-technical editor.
 publish_mode: simple
 
 media_folder: "src/assets/images/uploads"
