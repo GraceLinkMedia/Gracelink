@@ -144,6 +144,7 @@ collections:
           - { label: "YouTube Video ID (the part after 'v=' in the YouTube URL)", name: videoId, widget: string }
           - { label: "Video Title (for accessibility)", name: videoTitle, widget: string }
           - { label: "Video Thumbnail Image", name: videoThumbnail, widget: image }
+          - { label: "Button Text (shown directly under the video)", name: videoButtonText, widget: string }
           - { label: "Photo Gallery Heading (hidden from view, used for screen readers)", name: galleryHeading, widget: string, required: false }
           - label: "Photo Gallery (optional — photos of the venue, arrival, fellowship, etc.)"
             name: gallery

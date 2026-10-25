@@ -13,6 +13,7 @@ videoHeading: You're Welcome
 videoId: GmxkNfTfjSs
 videoTitle: "GraceLink Church — You're Welcome"
 videoThumbnail: assets/images/welcome-video-thumb.jpg
+videoButtonText: Plan A Visit
 galleryHeading: What to expect when you arrive
 gallery:
   - image: assets/images/venue-entrance.jpg
